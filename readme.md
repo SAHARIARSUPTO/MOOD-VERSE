@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MoodVerse - AI Mood Detection Platform
 
-## Getting Started
+MoodVerse is a full-stack web application that detects user moods using AI and responds with memes, music, or suggestions based on the mood.
 
-First, run the development server:
+## Tech Stack
+
+- Frontend: Next.js, TailwindCSS, Framer Motion
+- Backend: Python 3.10 (Custom server without FastAPI)
+- Mood Detection: OpenCV, DeepFace or FER+
+- Database: MongoDB
+- Node.js Server: Handles additional routes or services if needed
+
+## How to Run Locally
+
+### Requirements
+
+- Python 3.10
+- Node.js (v16 or later)
+- MongoDB (local or cloud)
+- Git
+
+## Project Structure
+
+/moodverse
+│
+├── client/               # Next.js frontend
+├── server/               # Python backend (custom script)
+├── node-server/          # Optional Node.js server
+└── README.md
+
+## 1. Backend Setup (Python)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+cd server
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Create a virtual environment
+python -m venv venv
+source venv/bin/activate      # For Windows: venv\Scripts\activate
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Install dependencies
+pip install -r requirements.txt
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Set PYTHONPATH for local module imports
 
-## Learn More
+# Linux/macOS
+export PYTHONPATH=$(pwd)
 
-To learn more about Next.js, take a look at the following resources:
+# Windows CMD
+set PYTHONPATH=%cd%
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Start your custom Python backend script
+python main.py
